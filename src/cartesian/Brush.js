@@ -23,6 +23,7 @@ class Brush extends Component {
     stroke: PropTypes.string,
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
+    r: PropTypes.number,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     travellerWidth: PropTypes.number,
@@ -48,6 +49,7 @@ class Brush extends Component {
   static defaultProps = {
     x: 0,
     y: 0,
+    r: 40,
     width: 0,
     height: 40,
     travellerWidth: 5,
@@ -321,9 +323,10 @@ class Brush extends Component {
         onTouchStart={this.travellerDragStartHandlers[id]}
         style={{ cursor: 'col-resize' }}
       >
-        <rect
-          x={x}
-          y={y}
+        <circle
+          cx={x}
+          cy={y}
+          r:r,
           width={travellerWidth}
           height={height}
           fill={stroke}
